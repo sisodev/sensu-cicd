@@ -1,0 +1,29 @@
+{
+    "builders": [
+        {
+            "type": "amazon-ebs",
+            "profile": "david",
+            "region": "us-east-1",
+            "ami_name": "sensu-client",
+            "source_ami":"ami-0ee02acd56a52998e",
+            "instance_type": "t2.micro",
+            "ssh_username":"ubuntu"
+        }
+    ],
+
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": [
+                "sleep 60",
+                "sudo apt update",
+                "echo  \" done with update\"",
+                "sleep 60"
+            ]
+        },
+        {
+            "type": "shell",
+            "script": "client_setup.sh"
+        }
+    ]
+}

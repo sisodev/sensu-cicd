@@ -1,0 +1,21 @@
+{
+    "builders": [
+        {
+            "type": "amazon-ebs",
+            "profile": "david",
+            "region": "us-east-1",
+            "ami_name": "jfrog-stage-repository",
+            "source_ami":"ami-0ee02acd56a52998e",
+            "instance_type": "t2.large",
+            "ssh_username":"ubuntu"
+        }
+    ],
+
+    "provisioners": [
+       
+        {
+            "type": "shell",
+            "script": "setup.sh"
+        }
+    ]
+}

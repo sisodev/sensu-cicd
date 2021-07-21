@@ -1,0 +1,2 @@
+backend-url:
+    - "ws://${master_ip}:8081"
